@@ -1,0 +1,41 @@
+<!-- infor.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách thành viên</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; }
+        .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .member { text-align: center; }
+        .profile { width: 150px; cursor: pointer; transition: transform 0.3s; }
+        .profile:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <h1>Danh sách thành viên</h1>
+    <div class="container" id="memberList"></div>
+    <script>
+        const members = [
+            { id: 1, name: "Nguyễn Đại Hiệp", major: "Công nghệ thông tin", img: "images/profile1.jpg" },
+            { id: 2, name: "Nguyễn Gia Bảo", major: "Công nghệ thông tin", img: "images/profile2.jpg" },
+            { id: 3, name: "Đoàn Văn Minh", major: "Công nghệ thông tin", img: "images/profile3.jpg" },
+            { id: 4, name: "Võ Lê Annh Tiến", major: "Công nghệ thông tin", img: "images/profile4.jpg" },
+            { id: 5, name: "Lê Hồng Anh", major: "Công nghệ thông tin", img: "images/profile5.jpg" }
+        ];
+
+        const container = document.getElementById("memberList");
+        members.forEach(member => {
+            container.innerHTML += `
+                <div class='member'>
+                    <img src="${member.img}" alt="${member.name}" class="profile" onclick="location.href='profile.html?id=${member.id}'">
+                    <p><strong>${member.name}</strong></p>
+                    <p>${member.major}</p>
+                </div>`;
+        });
+    </script>
+</body>
+</html>
+
+
